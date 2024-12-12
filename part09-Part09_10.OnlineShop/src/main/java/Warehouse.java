@@ -18,6 +18,32 @@ public class Warehouse {
         this.stocks.put(product, stock);
     }
 
+    public int stock(String product) {
+        
+        //Recorremos el hashmap de uno en uno y guardamos la entrada en entry
+        for (Map.Entry<String, Integer> entry : this.stocks.entrySet()) {
+            if (entry.getKey() == product) {
+                return entry.getValue();
+            }
+
+        }
+        return 0;
+
+    }public boolean take(String product) {
+        
+        
+        for (Map.Entry<String, Integer> entry : this.stocks.entrySet()) {
+            if (entry.getKey() == product && entry.getValue() > 0) {
+                
+                //recogemos el valor de stock de la entrada y lo seteamos restandole la unidad que hemos tomado
+                entry.setValue(entry.getValue() - 1);
+                return true;
+            }
+        }
+        return false;
+        
+    }
+
     public int price(String product) {
 
         for (Map.Entry<String, Integer> entry : this.prices.entrySet()) {
@@ -28,4 +54,6 @@ public class Warehouse {
         }
         return -99;
     }
+    
+    
 }
