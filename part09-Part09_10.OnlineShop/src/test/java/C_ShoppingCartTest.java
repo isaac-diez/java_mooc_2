@@ -10,12 +10,19 @@ import java.util.Scanner;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author isaac
+ */
 public class C_ShoppingCartTest {
 
     String klassName = "ShoppingCart";
     Reflex.ClassRef<Object> klass;
     Class c;
 
+    /**
+     *
+     */
     @Before
     public void setup() {
         klass = Reflex.reflect(klassName);
@@ -25,12 +32,18 @@ public class C_ShoppingCartTest {
         }
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.5")
     public void theClassShoppingCartExits() {
         assertTrue("The class " + klassName + " must be public, i.e, it must be declared as\npublic class " + klassName + " {...\n}", klass.isPublic());
     }
 
+    /**
+     *
+     */
     @Points("09-10.5")
     @Test
     public void hasMapOrList() {
@@ -56,12 +69,19 @@ public class C_ShoppingCartTest {
 
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.5")
     public void noExtraVariables() {
         cleanlinessCheck(klassName, 1, "an instance variable that stores Item objects");
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void constructorCheck() throws Throwable {
@@ -71,11 +91,20 @@ public class C_ShoppingCartTest {
         ctor.withNiceError(v).invoke();
     }
 
+    /**
+     *
+     * @return
+     * @throws Throwable
+     */
     public Object create() throws Throwable {
         Reflex.MethodRef0<Object, Object> ctor = klass.constructor().takingNoParams().withNiceError();
         return ctor.invoke();
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void methodPriceExits() throws Throwable {
@@ -93,6 +122,10 @@ public class C_ShoppingCartTest {
                 .returning(int.class).takingNoParams().withNiceError("this error was caused by the code \n" + v).invoke();
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void priceOfAnEmptyCartIsZero() throws Throwable {
@@ -102,6 +135,10 @@ public class C_ShoppingCartTest {
         assertEquals(k, 0, price);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void methodAddExits() throws Throwable {
@@ -119,6 +156,10 @@ public class C_ShoppingCartTest {
                 .returningVoid().taking(String.class, int.class).withNiceError("this error was caused by trying to run the code: \n" + v).invoke("milk", 3);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void addingAnItemIncreasesCartsPrice() throws Throwable {
@@ -130,6 +171,10 @@ public class C_ShoppingCartTest {
         assertEquals(k, 3, price);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void addingTwoDifferentProductsIncreasesCartsPrice() throws Throwable {
@@ -142,6 +187,10 @@ public class C_ShoppingCartTest {
         assertEquals(k, 8, price);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.5")
     public void addingThreeDifferentProducsIncreasesCartsPrice() throws Throwable {
@@ -158,6 +207,12 @@ public class C_ShoppingCartTest {
     /*
      *
      */
+
+    /**
+     *
+     * @throws Throwable
+     */
+
     @Test
     @Points("09-10.6")
     public void methodPrintExits() throws Throwable {
@@ -176,6 +231,10 @@ public class C_ShoppingCartTest {
 
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.6")
     public void printingWorks() throws Throwable {
@@ -207,6 +266,10 @@ public class C_ShoppingCartTest {
                 + k + " the line " + searched + " should be printed. Instead you printed:\n"+io.getOutput(), contains(t, searched));
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.7")
     public void addingTheSameProductTwiceIncreasesCartsPrice() throws Throwable {
@@ -222,6 +285,10 @@ public class C_ShoppingCartTest {
         assertEquals(k, 6, hinta);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.7")
     public void addingTheSameProductTwiceDoesNotCreateTwoItems() throws Throwable {
@@ -247,6 +314,10 @@ public class C_ShoppingCartTest {
                 + "the only line printed should be: milk: 2, instead you printed \n" + t[0] + "\n", t[0].contains("milk: 2"));
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.7")
     public void oneProductMultipleTimesAndSeveralOtherProducts() throws Throwable {
@@ -291,6 +362,11 @@ public class C_ShoppingCartTest {
     /*
      *
      */
+
+    /**
+     *
+     */
+
     @Test
     @Points("09-10.8")
     public void storeClassExists() {
@@ -301,6 +377,10 @@ public class C_ShoppingCartTest {
         }
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.8")
     public void shoppingWorks() throws Throwable {

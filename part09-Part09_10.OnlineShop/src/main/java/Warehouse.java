@@ -1,6 +1,8 @@
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Warehouse {
 
@@ -53,6 +55,17 @@ public class Warehouse {
 
         }
         return -99;
+    }
+    
+    //Part3
+    public Set<String> products() {
+        
+        Set<String> productsSet = new HashSet<>();
+        
+        productsSet = this.stocks.keySet();
+        
+        return productsSet;
+        
     }
     
     

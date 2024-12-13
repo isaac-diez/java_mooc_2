@@ -7,12 +7,19 @@ import java.lang.reflect.Method;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author isaac
+ */
 public class B_ItemTest {
 
     String klassName = "Item";
     Reflex.ClassRef<Object> klass;
     Class c;
 
+    /**
+     *
+     */
     @Before
     public void setup() {
         klass = Reflex.reflect(klassName);
@@ -22,12 +29,19 @@ public class B_ItemTest {
         }
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.4")
     public void classIsPublic() {
         assertTrue("The class " + klassName + " must be public, i.e, it must be declared as\npublic class " + klassName + " {...\n}", klass.isPublic());
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void constructorExits() throws Throwable {
@@ -37,17 +51,32 @@ public class B_ItemTest {
         ctor.withNiceError(v).invoke("milk", 2, 4);
     }
 
+    /**
+     *
+     * @param product
+     * @param price
+     * @param qty
+     * @return
+     * @throws Throwable
+     */
     public Object create(String product, int price, int qty) throws Throwable {
         Reflex.MethodRef3<Object, Object, String, Integer, Integer> ctor = klass.constructor().taking(String.class, int.class, int.class).withNiceError();
         return ctor.invoke(product, price, qty);
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.4")
     public void noExtraVariables() {
         cleanlinessCheck(klassName, 3, "instance variables for the product name, unit price and quantity");
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void priceMethod() throws Throwable {
@@ -66,6 +95,10 @@ public class B_ItemTest {
                 .returning(int.class).takingNoParams().withNiceError("The error was caused by trying to run the code: \n"+v).invoke());
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void priceIsCalculatedCorrectly() throws Throwable {
@@ -79,6 +112,12 @@ public class B_ItemTest {
     /*
      *
      */
+
+    /**
+     *
+     * @throws Throwable
+     */
+
 
     @Test
     @Points("09-10.4")
@@ -101,6 +140,10 @@ public class B_ItemTest {
                 .returningVoid().takingNoParams().withNiceError(v+"\nitem.price();").invoke();
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void quantityIncreases() throws Throwable {
@@ -112,6 +155,9 @@ public class B_ItemTest {
         assertEquals(k, 10, price);
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.4")
     public void toStringImplemented() {
@@ -119,6 +165,10 @@ public class B_ItemTest {
         assertFalse("For the Item class, implement the method public String toString()", item.toString().contains("@"));
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void toStringWorksCorrectly() throws Throwable {
@@ -129,6 +179,10 @@ public class B_ItemTest {
                 + "\n" + k, "milk: 2", item.toString());
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.4")
     public void toStringWorksCorrectly2() throws Throwable {

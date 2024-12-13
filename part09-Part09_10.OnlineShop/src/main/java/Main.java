@@ -1,14 +1,29 @@
 
+import java.util.Scanner;
+
+
+/**
+ *
+ * @author isaac
+ */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        Warehouse warehouse = new Warehouse();
-        warehouse.addProduct("milk", 3, 10);
-        warehouse.addProduct("coffee", 5, 7);
 
-        System.out.println("prices:");
-        System.out.println("milk: " + warehouse.price("milk"));
-        System.out.println("coffee: " + warehouse.price("coffee"));
-        System.out.println("sugar: " + warehouse.price("sugar"));
+        Warehouse warehouse = new Warehouse();
+        warehouse.addProduct("coffee", 5, 10);
+        warehouse.addProduct("milk", 3, 20);
+        warehouse.addProduct("cream", 2, 55);
+        warehouse.addProduct("bread", 7, 8);
+
+        Scanner scanner = new Scanner(System.in);
+
+        Store store = new Store(warehouse, scanner);
+        store.shop("John");
+
     }
 }

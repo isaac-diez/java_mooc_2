@@ -8,12 +8,19 @@ import java.util.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ *
+ * @author isaac
+ */
 public class A_WarehouseTest {
 
     String klassName = "Warehouse";
     Class c;
     Reflex.ClassRef<Object> klass;
 
+    /**
+     *
+     */
     @Before
     public void setup() {
         klass = Reflex.reflect(klassName);
@@ -23,12 +30,19 @@ public class A_WarehouseTest {
         }
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.1")
     public void classIsPublic() {
         assertTrue("Class " + klassName + " must be public, i.e, it must be defined with\npublic class " + klassName + " {...\n}", klass.isPublic());
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.1")
     public void constructor() throws Throwable {
@@ -38,11 +52,19 @@ public class A_WarehouseTest {
         ctor.withNiceError(v).invoke();
     }
 
+    /**
+     *
+     * @return
+     * @throws Throwable
+     */
     public Object create() throws Throwable {
         Reflex.MethodRef0<Object, Object> ctor = klass.constructor().takingNoParams().withNiceError();
         return ctor.invoke();
     }
 
+    /**
+     *
+     */
     @Points("09-10.1")
     @Test
     public void mapImplemented() {
@@ -61,6 +83,10 @@ public class A_WarehouseTest {
 
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.1")
     public void methodAddProductExits() throws Throwable {
@@ -84,6 +110,10 @@ public class A_WarehouseTest {
                 .returningVoid().taking(String.class, int.class, int.class).invoke(product, price, qty);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.1")
     public void methodPriceImplemented() throws Throwable {
@@ -107,6 +137,10 @@ public class A_WarehouseTest {
 
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.1")
     @Test
     public void priceMethodWorks() throws Throwable {
@@ -127,6 +161,10 @@ public class A_WarehouseTest {
         assertEquals(code, 5, t);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.1")
     @Test
     public void failedPriceCheckDoesNotCauseAnException() throws Throwable {
@@ -150,6 +188,10 @@ public class A_WarehouseTest {
                 .returning(int.class).taking(String.class).withNiceError(v).invoke("cheese");
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("08-10.1")
     @Test
     public void priceCheckForNonexistantProduct() throws Throwable {
@@ -169,6 +211,11 @@ public class A_WarehouseTest {
     /*
      *
      */
+
+    /**
+     *
+     */
+
     @Points("09-10.2")
     @Test
     public void mapExists() {
@@ -188,6 +235,10 @@ public class A_WarehouseTest {
 
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.2")
     public void stockMethodExits() throws Throwable {
@@ -210,6 +261,10 @@ public class A_WarehouseTest {
                 .returning(int.class).taking(String.class).withNiceError(v).invoke("coffee");
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.2")
     @Test
     public void stockMethodWorksWithProductInTheWarehouse() throws Throwable {
@@ -228,6 +283,10 @@ public class A_WarehouseTest {
         assertEquals(code, 7, t);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.2")
     public void stockForAProductNotInTheWarehouse() throws Throwable {
@@ -251,6 +310,10 @@ public class A_WarehouseTest {
                 .returning(int.class).taking(String.class).withNiceError("The error was caused by the following code: \n" + v).invoke("cheese"));
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Test
     @Points("09-10.2")
     public void methodTakeExits() throws Throwable {
@@ -281,6 +344,10 @@ public class A_WarehouseTest {
                 .returning(boolean.class).taking(String.class).withNiceError(v).invoke("cheese");
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.2")
     @Test
     public void takeReducesQuantity() throws Throwable {
@@ -303,6 +370,10 @@ public class A_WarehouseTest {
         assertEquals(code, 6, t);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.2")
     @Test
     public void takeWorksWhenStockBecomesZero() throws Throwable {
@@ -327,6 +398,10 @@ public class A_WarehouseTest {
         assertEquals(code, 0, t);
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.2")
     @Test
     public void tryingToTakeAProductThatDoesNotExistReturnsFalse() throws Throwable {
@@ -346,6 +421,12 @@ public class A_WarehouseTest {
     /*
      *
      */
+
+    /**
+     *
+     * @throws Throwable
+     */
+
     @Test
     @Points("09-10.3")
     public void methodProductsExits() throws Throwable {
@@ -368,6 +449,10 @@ public class A_WarehouseTest {
                 .returning(Set.class).takingNoParams().withNiceError(v).invoke();
     }
 
+    /**
+     *
+     * @throws Throwable
+     */
     @Points("09-10.3")
     @Test
     public void productsMethodWorks() throws Throwable {
@@ -391,6 +476,9 @@ public class A_WarehouseTest {
         assertEquals(code + " returned the set +" + p + " \"sugar\" is included in the set ", true, p.contains("sugar"));
     }
 
+    /**
+     *
+     */
     @Test
     @Points("09-10.1 09-10.2 09-10.3")
     public void noExtraVariables() {
