@@ -1,0 +1,30 @@
+To Kill a Mockingbird,1960,281,Harper Lee  
+1984,1949,328,George Orwell  
+Pride and Prejudice,1813,432,Jane Austen  
+The Great Gatsby,1925,218,F. Scott Fitzgerald  
+Moby-Dick,1851,585,Herman Melville  
+War and Peace,1869,1225,Leo Tolstoy  
+Crime and Punishment,1866,671,Fyodor Dostoevsky  
+The Catcher in the Rye,1951,277,J.D. Salinger  
+The Hobbit,1937,310,J.R.R. Tolkien  
+Jane Eyre,1847,500,Charlotte Brontë  
+Brave New World,1932,288,Aldous Huxley  
+The Lord of the Rings: The Fellowship of the Ring,1954,423,J.R.R. Tolkien  
+The Alchemist,1988,208,Paulo Coelho  
+One Hundred Years of Solitude,1967,417,Gabriel García Márquez  
+Wuthering Heights,1847,416,Emily Brontë  
+The Picture of Dorian Gray,1890,254,Oscar Wilde  
+Les Misérables,1862,1463,Victor Hugo  
+Anna Karenina,1877,864,Leo Tolstoy  
+Dracula,1897,418,Bram Stoker  
+The Stranger,1942,123,Albert Camus  
+Fahrenheit 451,1953,158,Ray Bradbury  
+The Grapes of Wrath,1939,464,John Steinbeck  
+The Old Man and the Sea,1952,127,Ernest Hemingway  
+The Divine Comedy: Inferno,1320,430,Dante Alighieri  
+Don Quixote,1605,863,Miguel de Cervantes  
+The Brothers Karamazov,1880,824,Fyodor Dostoevsky  
+The Road,2006,287,Cormac McCarthy  
+The Handmaid's Tale,1985,311,Margaret Atwood  
+The Name of the Rose,1980,536,Umberto Eco  
+The Kite Runner,2003,372,Khaled Hosseini

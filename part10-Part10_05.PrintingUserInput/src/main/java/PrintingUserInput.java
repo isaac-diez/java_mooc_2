@@ -6,6 +6,22 @@ public class PrintingUserInput {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ArrayList<String> listInputs = new ArrayList<>();
+        
+        while (true) {
+            
+            String input = scanner.nextLine();
+            
+            if (input.equals("")) {
+                break;
+            }
+            
+            listInputs.add(input);            
+            
+        }
+        
+        listInputs.stream()
+                .forEach(input -> System.out.println(input));
 
     }
 }
