@@ -1,5 +1,8 @@
 
-public class Human {
+import java.util.ArrayList;
+
+
+public class Human implements Comparable<Human>{
 
     private int wage;
     private String name;
@@ -21,5 +24,11 @@ public class Human {
     @Override
     public String toString() {
         return name + " " + wage;
+    }
+    
+    @Override
+    public int compareTo(Human human) {
+        
+        return human.getWage() - this.getWage();
     }
 }
