@@ -13,9 +13,9 @@ public class MainProgram {
 
         System.out.print("Enter a string: ");
         
-        String dayOfWeek = scanner.nextLine();
+        String input = scanner.nextLine();
 
-        if (dayOfTheWeekChecker.isDayOfWeek(dayOfWeek)) {
+        if (dayOfTheWeekChecker.timeOfDay(input)) {
             System.out.println("The form is correct.");
         } else {
             System.out.println("The form is incorrect.");
